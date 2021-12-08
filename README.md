@@ -4,6 +4,6 @@ React example application with some missing functionality that needs to be added
 
 ### Start with
 
-`yarn`
+`yarn` or `npm i`
 
-`yarn start`
+`yarn start` or `npm run start`
