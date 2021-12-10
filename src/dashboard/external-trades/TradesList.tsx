@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext, useState, useEffect } from 'react';
 import {
   IColumn,
   buildColumns,
@@ -288,6 +288,17 @@ export const TradesList: React.FunctionComponent = () => {
     }
     return columns;
   });
+
+  // update list on mount and when selected updateInterval changes
+  useEffect(() => {
+    // update to selected interval 
+    const updateInterval = setInterval(() => {
+      setItems(items => updateItemsRandomly(items))
+      // console.log(updateIntervalInMilliSeconds)
+      // console.log(items.filter(item => item.updated))
+    }, updateIntervalInMilliSeconds)
+    return () => clearInterval(updateInterval)
+  }, [updateIntervalInMilliSeconds])
 
   return (
     <>
