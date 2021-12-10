@@ -293,12 +293,12 @@ export const TradesList: React.FunctionComponent = () => {
   useEffect(() => {
     // update to selected interval 
     const updateInterval = setInterval(() => {
-      setItems(items => updateItemsRandomly(items))
+      setItems(updateItemsRandomly([...items]))
       // console.log(updateIntervalInMilliSeconds)
       // console.log(items.filter(item => item.updated))
     }, updateIntervalInMilliSeconds)
     return () => clearInterval(updateInterval)
-  }, [updateIntervalInMilliSeconds])
+  }, [updateIntervalInMilliSeconds, items])
 
   return (
     <>
